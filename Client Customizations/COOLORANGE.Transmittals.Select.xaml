@@ -1,0 +1,54 @@
+<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="COOLORANGE - Transmittals" 
+    Height="160" Width="400" MinWidth="450" MinHeight="160" FontFamily="Segoe UI" FontSize="12.5"
+    WindowStartupLocation="CenterOwner">
+    <Window.Resources>
+        <ResourceDictionary>
+            <Style TargetType="{x:Type ComboBox}" BasedOn="{StaticResource {x:Type ComboBox}}">
+                <Setter Property="VerticalContentAlignment" Value="Center" />
+                <Setter Property="Height" Value="24" />
+            </Style>
+            <Style TargetType="{x:Type Button}" BasedOn="{StaticResource {x:Type Button}}">
+                <Setter Property="Height" Value="29" />
+            </Style>
+            <Style TargetType="{x:Type Label}">
+                <Setter Property="FontSize" Value="11.5" />
+                <Setter Property="VerticalAlignment" Value="Bottom" />
+                <Setter Property="Padding" Value="0,0,0,2" />
+            </Style>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Grid Margin="15">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+
+        <Label Grid.Row="0" x:Name="Label" Content="Select Transmittal:" />
+        <ComboBox Grid.Row="1" x:Name="Object" TextSearch.TextPath="Name" DisplayMemberPath="Name" SelectedValuePath="Object" VerticalAlignment="Top" Height="23" IsEditable="False" />
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="110" />
+                <ColumnDefinition Width="100"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="Ok" Grid.Column="1" Height="26" Width="100" Margin="0,0,10,0">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding SelectedItem, ElementName=Object}" Value="{x:Null}">
+                                <Setter Property="IsEnabled" Value="False" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+                OK
+            </Button>
+            <Button x:Name="Cancel" Grid.Column="2" Height="26" Width="100" IsCancel="True">Cancel</Button>
+        </Grid>
+    </Grid>
+</Window>
