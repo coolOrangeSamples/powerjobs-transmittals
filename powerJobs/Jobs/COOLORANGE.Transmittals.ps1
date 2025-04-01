@@ -7,9 +7,10 @@
 #==============================================================================#
 
 # Do not delete the next line. Required for the powerJobs Settings Dialog to determine the entity type for lifecycle state change triggers.
-# JobEntityType = CUSTENT
+# JobEntityType = Transmittal
 
 #region Settings
+# RDLC Report location
 $reportFileLocation = "C:\ProgramData\coolOrange\powerJobs\Jobs\COOLORANGE.Transmittals.rdlc"
 #endregion
 
